@@ -29,7 +29,7 @@ Det är helt ok att gå loss med animationer, bilder, ljud, extra-allt, eldar, bli
 
 # Deadline
 
-Skicka en zip-fil med din sajt till **happybits@gmail.com** senast **kl 16.00** 
+Skapa en zip-fil av ditt projekt och ladda upp här i Canvas senast **kl 16.00** 
 
 Tips: skicka zip-filen först till en kompis och verifiera att sajten funkar på hans/hennes dator också. (då undviker du att bilder och script är fellänkade)
 
