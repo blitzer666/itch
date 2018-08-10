@@ -85,14 +85,14 @@ namespace M4_Methods
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(text);
-            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         private static void WriteGreen(string text)
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(text);
-            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 
