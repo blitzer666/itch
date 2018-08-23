@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MethodsAndLists.ConsoleApp
 {
@@ -9,6 +10,7 @@ namespace MethodsAndLists.ConsoleApp
         {
             // Demo: dubblera alla tal i listan
             // Demo: dubblera alla tal i listan. Hoppa över negativa tal.
+
 
             /*
                 Addera 100 till varje siffra i listan
@@ -86,8 +88,134 @@ namespace MethodsAndLists.ConsoleApp
             //    Console.WriteLine(item);
             //}
 
+            //List<int> result = Add100ToEachNumber_Linq(new List<int> { 5, 15, 23, 200 });
+            //List<int> result = GetNumbersHigherThan1000_Linq(new List<int> { 1005, 6, 77, 200000, 666 });
+            //List<int> result = GetNumbersDividableByFive_Linq(new List<int> { 20, 5, 6, 7, 10 });
+            //List<int> result = DivideEachNumberBy100_Linq(new List<int> { 300, 200, -500, 1000 });
         }
-        
+
+        private List<int> Add70ToEverySecondElement(List<int> numbers)
+        {
+            var result = new List<int>();
+            int counter = 1;
+            foreach (var number in numbers)
+            {
+                int newNumber;
+
+                if (counter % 2 == 0)
+                    newNumber = number + 70;
+                else
+                    newNumber = number;
+
+                result.Add(newNumber);
+
+                counter++;
+            }
+
+            return result;
+        }
+
+        private List<int> Add50ToFirstThreeElements(List<int> numbers)
+        {
+            var result = new List<int>();
+            int numberCounter = 1;
+            foreach (var number in numbers)
+            {
+                int newNumber = number;
+
+                if (numberCounter <= 3)
+                    newNumber = number + 50;
+
+                result.Add(newNumber);
+                numberCounter++;
+            }
+
+            return result;
+        }
+
+        private List<int> NegateEachNumber(List<int> numbers)
+        {
+            var result = new List<int>();
+            foreach (var number in numbers)
+            {
+                int newNumber = -number;
+                result.Add(newNumber);
+            }
+
+            return result;
+        }
+
+        private List<int> DivideEachNumberBy100(List<int> numbers)
+        {
+            var result = new List<int>();
+            foreach (var number in numbers)
+            {
+                int newNumber = number / 100;
+                result.Add(newNumber);
+            }
+
+            return result;
+        }
+
+        private List<int> DivideEachNumberBy100_Linq(List<int> numbers)
+        {
+            return numbers.Select(x => x / 100).ToList();
+        }
+
+
+        private List<int> GetNumbersDividableByFive(List<int> numbers)
+        {
+            var result = new List<int>();
+            foreach (var number in numbers)
+            {
+                if (number % 5 == 0)
+                    result.Add(number);
+            }
+
+            return result;
+        }
+
+        private List<int> GetNumbersDividableByFive_Linq(List<int> numbers)
+        {
+            return numbers.Where(x=>x%5==0).ToList();
+        }
+
+        private List<int> GetNumbersHigherThan1000(List<int> numbers)
+        {
+            var result = new List<int>();
+            foreach (var number in numbers)
+            {
+                if (number>1000)
+                    result.Add(number);
+            }
+
+            return result;
+        }
+
+
+        private List<int> GetNumbersHigherThan1000_Linq(List<int> numbers)
+        {
+            return numbers.Where(x => x > 1000).ToList();
+        }
+
+
+        private List<int> Add100ToEachNumber(List<int> numbers)
+        {
+            var result = new List<int>();
+            foreach (var number in numbers)
+            {
+                int newNumber = number + 100;
+                result.Add(newNumber);
+            }
+
+            return result;
+        }
+
+        private List<int> Add100ToEachNumber_Linq(List<int> numbers)
+        {
+            return numbers.Select(x => x + 100).ToList();
+        }
+
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MethodsAndLists.ConsoleApp
 {
@@ -8,6 +9,7 @@ namespace MethodsAndLists.ConsoleApp
 
         public void Run()
         {
+            // Demo: returnera "fjärde talet är jättestort" om det är större än 10000
 
             /*
             
@@ -31,6 +33,7 @@ namespace MethodsAndLists.ConsoleApp
              */
 
             /*
+             
                 Returnera en text hur många negativa tal som finns i listan
 
                 string result = ReportNumberOfNegativeValues(new List<int> {5, 7, -2, 100, -4});
@@ -44,7 +47,53 @@ namespace MethodsAndLists.ConsoleApp
             //Console.WriteLine("RESULT");
             //Console.WriteLine(result);
 
+            // string result = ReportFirstAndLastValue_Linq(new List<int> { 5, 1000, 2000, 3000, 6 });
         }
-        
+
+        private string ReportNumberOfNegativeValues(List<int> numbers)
+        {
+            int negativeNumbersCounter = 0;
+            foreach (var number in numbers)
+            {
+                if (number < 0)
+                    negativeNumbersCounter++;
+            }
+
+            if (negativeNumbersCounter > 0)
+                return "Det finns " + negativeNumbersCounter + "st negativa tal i listan";
+            else
+                return "Jippi! Det finns inga negativa tal i listan";
+        }
+
+        private string ReportIfAllValuesAreHigherThan100(List<int> numbers)
+        {
+            bool highNumbers = numbers.Count != 0;
+
+            foreach (int number in numbers)
+            {
+                if (number <= 100)
+                    highNumbers = false;
+            }
+
+            if (highNumbers)
+                return "Alla nummer är högre än 100";
+            else
+                return "Något nummer är lägre (eller lika med) 100";
+        }
+
+        private string ReportFirstAndLastValue(List<int> numbers)
+        {
+            int first = numbers[0];
+
+            int lastIndex = numbers.Count-1;
+            int last = numbers[lastIndex];
+
+            return "Första siffran är " + first + " och sista siffran är " + last;
+        }
+
+        private string ReportFirstAndLastValue_Linq(List<int> numbers)
+        {
+            return "Första siffran är " + numbers.First() + " och sista siffran är " + numbers.Last();
+        }
     }
 }
